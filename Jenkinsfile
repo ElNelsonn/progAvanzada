@@ -14,6 +14,7 @@ pipeline {
         stage('Run Unit Tests') {
             steps {
                 dir('app') {
+                    sh "chmod +x mvnw"
                     sh "./mvnw test"
                 }
             }
@@ -26,14 +27,16 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat "docker compose build"
+                sh "docker compose build"
             }
         }
 
         stage('Deploy') {
             steps {
-                bat "deploy.bat"
+                sh "docker compose down"
+                sh "docker compose up -d"
             }
         }
     }
 }
+
