@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center text-gray-100">
+<main class="w-full max-w-md">
+    <section class="bg-gray-800/70 backdrop-blur shadow-xl rounded-2xl p-8 border border-gray-700">
+        <header class="mb-6 text-center">
+            <h1 class="text-2xl font-semibold text-white">Iniciar sesión</h1>
+            <p class="text-sm text-gray-400 mt-1">Accedé a tu cuenta</p>
+        </header>
+
+        <form id="loginForm" class="space-y-4" novalidate>
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-300">Usuario</label>
+                <input id="username" name="username" type="text" required
+                       class="mt-1 w-full rounded-lg border-gray-600 bg-gray-700 text-gray-200
+                       focus:border-indigo-500 focus:ring-indigo-500 px-3 py-2"
+                       placeholder="Ingresa tu usuario" />
+            </div>
+
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-300">Contraseña</label>
+                <input id="password" name="password" type="password" required
+                       class="mt-1 w-full rounded-lg border-gray-600 bg-gray-700 text-gray-200
+                       focus:border-indigo-500 focus:ring-indigo-500 px-3 py-2"
+                       placeholder="Ingresa tu contraseña" />
+            </div>
+
+            <div id="formAlert" class="hidden mb-4 rounded-lg p-3 text-sm"></div>
+
+            <button id="submitBtn" type="submit"
+                    class="w-full inline-flex items-center justify-center rounded-lg bg-indigo-600 text-white font-medium px-4 py-2.5
+                    hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
+                    transition disabled:opacity-60 disabled:cursor-not-allowed">
+                Entrar
+            </button>
+        </form>
+    </section>
+
+    <p class="text-center text-xs text-gray-500 mt-4">
+        ¿No tenés cuenta? <a href="/register" class="text-indigo-400 hover:text-indigo-300">Registrate aquí</a>
+    </p>
+</main>
+
+<script defer src="/login/Login.js"></script>
+</body>
+</html>
