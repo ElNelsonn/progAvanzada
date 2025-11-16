@@ -16,7 +16,7 @@ services:
       - prog-net
 
   app:
-    build: ./
+    build: ./app
     container_name: progavanzada-app
     restart: always
     ports:
