@@ -25,18 +25,10 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                dir('app') {
-                    sh 'docker compose build'
-        }
-    }
-}
-
         stage('Deploy') {
             steps {
                 sh "docker compose down"
-                sh "docker compose up -d"
+                sh "docker compose up -d --build"
             }
         }
     }
