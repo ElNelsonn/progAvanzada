@@ -14,7 +14,7 @@ pipeline {
         stage('Run Unit Tests') {
             steps {
                 dir('app') {
-                    bat "./mvnw.cmd test"
+                    sh "./mvnw test"
                 }
             }
             post {
