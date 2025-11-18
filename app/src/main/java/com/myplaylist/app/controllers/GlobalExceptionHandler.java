@@ -12,7 +12,7 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntiry<String> handleException(Exception ex) {
+    public ResponseEntity<String> handleException(Exception ex) {
 
 
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
