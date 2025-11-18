@@ -14,7 +14,7 @@ public class UserValidator {
     private final UserRepository userRepository;
 
 
-    public void validateUsernameIsUnique(String username) {
+    public void validateUsernameIsUnique(String username) throws IllegalArgumentException {
 
         if (userRepository.existsByUsername(username)) {
             throw new IllegalArgumentException("Username en uso.");

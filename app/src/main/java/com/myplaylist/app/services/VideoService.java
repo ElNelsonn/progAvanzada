@@ -25,14 +25,7 @@ public class VideoService {
     @Transactional
     public void addVideo(AddVideoDTO addVideoDTO) throws IllegalArgumentException {
 
-        try {
-
-            videoValidator.validateUrlIsUnique(addVideoDTO.getUrl());
-
-        } catch (IllegalArgumentException e) {
-
-            throw new IllegalArgumentException("Video URL already exists");
-        }
+        videoValidator.validateUrlIsUnique(addVideoDTO.getUrl());
 
         Video video = Video.builder().
                 title(addVideoDTO.getTitle()).

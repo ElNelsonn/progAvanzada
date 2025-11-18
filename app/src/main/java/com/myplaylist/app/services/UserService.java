@@ -24,14 +24,10 @@ public class UserService {
     @Transactional
     public void createUser(CreateUserDTO createUserDTO) throws IllegalArgumentException {
 
-        try {
 
-            userValidator.validateUsernameIsUnique(createUserDTO.getUsername());
 
-        } catch (IllegalArgumentException e) {
+        userValidator.validateUsernameIsUnique(createUserDTO.getUsername());
 
-            throw new IllegalArgumentException("Username already exists");
-        }
 
         User user = User.builder().
                 username(createUserDTO.getUsername()).

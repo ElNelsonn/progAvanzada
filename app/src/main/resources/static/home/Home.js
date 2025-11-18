@@ -16,7 +16,7 @@ if (!userId) {
 }
 
 //-------------------------------------------
-// Fetch API helpers
+// Fetch APIs
 //-------------------------------------------
 
 async function fetchVideos() {
@@ -116,16 +116,12 @@ function renderVideos(videos) {
             </button>
         `;
 
-        //----------------------------------------------------
-        // Abrir modal al hacer click en el item
-        //----------------------------------------------------
+
         item.addEventListener("click", () => {
             openVideoModal(video);
         });
 
-        //----------------------------------------------------
-        // Clic en Like (toggle)
-        //----------------------------------------------------
+
         const likeBtn = item.querySelector(".likeBtn");
 
         likeBtn.addEventListener("click", async (e) => {
@@ -133,7 +129,7 @@ function renderVideos(videos) {
 
             try {
                 if (isLiked) {
-                    // ---- UNLIKE ----
+
                     await unlikeVideo(userId, video.id);
 
                     video.likes--;
@@ -141,7 +137,7 @@ function renderVideos(videos) {
                         currentUser.likedVideoIds.filter(vId => vId !== video.id);
 
                 } else {
-                    // ---- LIKE ----
+
                     await likeVideo(userId, video.id);
 
                     video.likes++;
@@ -254,7 +250,7 @@ const playerFrame = document.getElementById("playerFrame");
 const playerTitle = document.getElementById("playerTitle");
 const playerDescription = document.getElementById("playerDescription");
 
-// Abrir modal
+
 function openVideoModal(video) {
     const youtubeId = getYoutubeId(video.url);
 
@@ -268,7 +264,7 @@ function openVideoModal(video) {
     videoPlayerModal.classList.remove("hidden");
 }
 
-// Cerrar modal
+
 function closeVideoModal() {
     playerFrame.src = "";
     videoPlayerModal.classList.add("hidden");
